@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Classification of Chest Radiographs </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<style>
+		.col-xs-12 h2{
+		background-color : lightblue;
+		color : white;
+		text-align : center;
+		padding : 15px;
+		border-bottom : 1px solid black;
+
+	</style>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="col-xs-12">
+		<h2> Classification of Chest Radiographs </h2>
+	</div>
+
+	<div class="container">
+		<div class="col-xs-12">
+			<h4> Description: </h4>
+			<p> The Convolutional Neural Networks model for classifiation of chest radiographs has been deployed using Flask,
+			a python framework for web application. 
+			The application takes a chest radiograph and classifies it into three classes namely, COVID-19, Normal/Healthy and Viral Pneumonia. 
+			The model returns the class name with higher predicted value among these classes. 
+			The proposed method has not undergone a clinical study.
+			Thus it does not replace a medical diagnosis since a more thorough investigation could be done with a larger dataset.
+			Under those circumstances, our work contributes to the possibility of an accurate, automatic, fast, and inexpensive
+			method for assisting in the diagnosis of COVID-19 through chest X-ray images.
+ 			</p>
+		</div>
+	</div>
+
+	<div class="col-xs-6">
+	<form class="p-3 text-center" action="/", method="post" enctype="multipart/form-data">
+	<input class="form-control" type="file" name="imagefile"> <br/>
+	<input class="btn btn-primary mt-3" type="submit" value="Predict Image">
+	</form>
+	</div>
+
+	<div class="container-fluid">
+	{% if prediction %}
+		<img src="/static/image.jpg" height="300px" width="350px"> <br/> <br/>
+		<p class="text-center"> <b> The image is predicted as {{prediction}} </b> </p>
+	{% endif %}
+	</div>
+</body>
+
+</html>
